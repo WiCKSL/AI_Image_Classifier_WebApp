@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>AI Image Detection</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            AI Vision Lab
+        </div>
+
+        <a href="/" class="nav-btn">
+            Home
+        </a>
+
+    </header>
+
+
+    <section class="detect-hero">
+
+        <h1>Analyze Image Authenticity</h1>
+
+        <p>
+            Upload an image and allow the deep learning system to evaluate whether
+            the visual content originates from real photography or synthetic AI generation.
+        </p>
+
+    </section>
+
+
+
+    <section class="upload-section">
+
+        <form action="/detect" method="POST" enctype="multipart/form-data" onsubmit="showLoader()">
+
+            <div class="upload-box">
+
+                <input type="file" name="file" required onchange="previewImage(this)">
+
+                <p class="upload-text">
+                    Drag & Drop Image or Click to Upload
+                </p>
+
+            </div>
+
+
+            <div class="preview-container" id="previewBox">
+
+                <img id="preview">
+
+                <div class="scan-line"></div>
+
+            </div>
+
+
+            <div class="loader" id="loader"></div>
+
+
+            <button class="detect-btn">
+                Run AI Detection
+            </button>
+
+        </form>
+
+    </section>
+
+
+
+    <section class="process">
+
+        <h2>How the Detection Works</h2>
+
+        <div class="process-grid">
+
+            <div class="process-card">
+                <h3>Image Upload</h3>
+                <p>
+                    The system receives the uploaded image and prepares it for preprocessing.
+                </p>
+            </div>
+
+            <div class="process-card">
+                <h3>Preprocessing</h3>
+                <p>
+                    Images are resized and normalized to match the model input dimensions.
+                </p>
+            </div>
+
+            <div class="process-card">
+                <h3>Feature Extraction</h3>
+                <p>
+                    MobileNetV2 extracts visual features including textures and patterns.
+                </p>
+            </div>
+
+            <div class="process-card">
+                <h3>Prediction</h3>
+                <p>
+                    The neural network predicts whether the image is real or AI generated.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="technology">
+
+        <h2>Technology Behind the Detection</h2>
+
+        <div class="tech-grid">
+
+            <div class="tech-card">
+                <h3>Deep Learning</h3>
+                <p>
+                    Convolutional neural networks analyze complex image structures.
+                </p>
+            </div>
+
+            <div class="tech-card">
+                <h3>Transfer Learning</h3>
+                <p>
+                    Pretrained MobileNetV2 improves detection accuracy and efficiency.
+                </p>
+            </div>
+
+            <div class="tech-card">
+                <h3>TensorFlow</h3>
+                <p>
+                    Provides scalable machine learning infrastructure.
+                </p>
+            </div>
+
+            <div class="tech-card">
+                <h3>Flask API</h3>
+                <p>
+                    Handles server side processing and model inference.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="accuracy">
+
+        <h2>Detection Accuracy</h2>
+
+        <p>
+            The model is trained on curated datasets of real and AI generated images.
+            Through transfer learning and optimization, the system learns
+            to identify subtle artifacts often present in synthetic images.
+        </p>
+
+    </section>
+
+
+
+    <footer>
+
+        <p>
+            AI Image Authenticity Detection System
+            MSc Computer Science Final Year Project
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
